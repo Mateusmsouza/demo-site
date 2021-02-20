@@ -25,7 +25,8 @@ def handle_news():
 
     with open('temp/result.json', 'r') as reader:
         result = reader.read() 
-    
+
+    result = bool(int(result))
 
     return f'Sua notía parece ser {"verdadeira" if result else "falsa"}.'
 
