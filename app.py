@@ -1,13 +1,14 @@
 from flask import Flask
 from flask import request
 from flask import render_template
-from services.main import validate_news
+import subprocess
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template("index.html")
+    return render_template("base.html")
 
 @app.route('/handle_news', methods=['POST'])
 def handle_news():
@@ -16,5 +17,14 @@ def handle_news():
         "text": request.form['news_text']
     }
 
-    result = validate_news(news)
-    return f'Thanks : {result}'
+    with open('temp/news.json', 'w') as writer:
+        writer.write(news.__str__())
+
+    result = None
+    os.system('python main.py')
+
+    with open('temp/result.json', 'r') as reader:
+        result = reader.read() 
+    
+
+    return f'Sua notía parece ser {"verdadeira" if result else "falsa"}.'

@@ -1,0 +1,12 @@
+<form action="{{ url_for('handle_news') }}" method="post">
+    <br>
+    <h1>Detecção de Fake News</h1>
+    <h2>Esta é uma pequena aplicação que prediz se uma notícia é falsa ou não. Foi feita para demonstração de trabalho de graduação do curso de tecnologia em Banco de Dados da Fatec São José dos Campos.</h2>
+    <p>Contato: mateus_msouza@outlook.com.
+    <br></br>
+    <input type="text" name="news_title" placeholder="titulo da notícia">
+    <br></br>
+    <textarea name="news_text" cols="40" placeholder="texto da notícia" rows="5"></textarea>
+    <br></br>
+    <input type="submit">
+</form>
