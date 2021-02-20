@@ -28,3 +28,7 @@ def handle_news():
     
 
     return f'Sua notía parece ser {"verdadeira" if result else "falsa"}.'
+
+
+if __name__ == '__main__':
+    app.run()
